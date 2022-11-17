@@ -1,38 +1,344 @@
 .App {
   text-align: center;
+  margin: 0px;
+  background: #2a2a2a;
+  height: 100vh;
+  transition: 0.8s;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  color: #f0f0f0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h1 {
+  font-size: 1.7rem;
+  font-weight: 300;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+h2 {
+  font-size: 1.7rem;
+  font-weight: 300;
+  margin: 3px;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0px;
+  padding: 20px 20px;
+}
+
+.header h1 {
+  margin: 7px;
+  justify-self: center;
+  text-justify: center;
+  height: fit-content;
+}
+
+.menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  padding: 0px 10px;
+  height: 45px;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.menu:hover {
+  background-color: rgba(50, 50, 50, 0.5);
+  padding: 0px 10px;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.menu h1 {
+  margin: 0px 5px;
+}
+
+.music-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.album-art {
+  width: fit-content;
+  height: 400px;
+  width: 400px;
+  border-radius: 15px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.album-art img {
+  height: 100%;
+  width: 100%;
+  border-radius: 15px;
+}
+
+.song-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.current-song {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(50, 50, 50, 0.5);
+  width: 40em;
+  padding: 30px 20px 0px;
+  margin: 20px 0px 0px;
+  border-radius: 15px 15px 0px 0px;
+}
+
+.player-controls {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(50, 50, 50, 0.5);
+  padding: 20px 20px 40px;
+  width: 40em;
+  margin: 0px 0px 20px;
+  border-radius: 0px 0px 15px 15px;
+}
+
+.track-progress {
+  margin: 1vh 0vw 3vh;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  cursor: pointer;
+  flex-direction: row;
+}
+
+.time, .length {
+  margin: 0px 15px;
+}
+
+.progress-bar {
+  height: 8px;
+  border-radius: 99px;
+  width: 30em;
+  background-color: rgb(86, 86, 86);
+}
+
+.seek-bar {
+  height: 100%;
+  border-radius: 999px;
+  background-color: #f0f0f0;
+}
+
+.controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 50%;
+}
+
+.play-pause, .back, .next {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: fit-content;
+  width: fit-content;
+  cursor: pointer;
+}
+
+.library-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #0e0e0e;
+  height: 100vh;
+  top: 0px;
+  width: 22rem;
+  right: -400px;
+  position: fixed;
+  transition: 0.5s;
+}
+
+.library-container.active {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(14, 14, 14);
+  height: 100vh;
+  top: 0px;
+  width: 22rem;
+  right: 0px;
+  position: fixed;
+  transition: 0.3s;
+}
+
+.close-menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
+  align-items: center;
+}
+
+.close-menu svg {
+  cursor: pointer;
+}
+
+.close-menu h1 {
+  font-size: 2rem;
+  margin: 0px 10px;
+}
+
+.track-details {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px;
+  margin: 10px;
+  transition: 0.3s;
+}
+
+.track-details:hover {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #2a2a2a;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.track-description {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 0px 20px;
+  overflow: hidden;
+}
+
+.track-description h2 {
+  font-size: 1.1rem;
+  margin: 5px 0px;
+}
+
+.track-description p {
+  font-size: 0.8rem;
+  margin: 0px;
+}
+
+.album-cover {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.album-cover img {
+  justify-self: center;
+  width: 4rem;
+  height: auto;
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 1000px) {
+
+  .header {
+    margin: 0px 0px 5vh;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .current-song {
+    width: 35em;
+  }
+
+  .player-controls {
+    width: 35em;
+  }
+
+  .track-progress {
+    width: 95%;
+  }
+
+  .progress-bar {
+    width: 85%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+
+  .App {
+    width: 100%;
+  }
+
+  .header {
+    margin: 0px 0px 5vh;
+    padding: 5px;
+  }
+
+  .header h1 {
+    margin-top: 10px;
+    font-size: 1.3rem;
+  }
+
+  .menu h1 {
+    margin-top: 0px;
+  }
+
+  .album-art {
+    width: 85vw;
+    height: 85vw;
+  }
+  
+  .current-song {
+    width: 90%;
+    padding: 0px;
+    margin: 20px 0px 0px;
+  }
+
+  .current-song h2.artist {
+    font-size: 1rem;
+    margin: 15px 0px 10px;
+  }
+
+  p.track-title {
+    margin: 0px;
+    font-size: 0.7rem;
+  }
+
+  .player-controls {
+    width: 90%;
+    padding: 10px 0px 20px;
+    margin: 0px;
+    font-size: 0.7rem;
+  }
+
+  .controls {
+    width: 80%;
+  }
+
+  .track-progress {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  .time, .length {
+    margin: 0px 10px;
+  }
+
+  .progress-bar {
+    width: 100%;
+    height: 5px;
+  }
+
+  .library-container.active {
+    width: 100%;
+    overflow-y: scroll;
   }
 }
