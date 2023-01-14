@@ -7,3 +7,7 @@
 #### The main player has a play/pause button, seeking buttons, a progress bar that seeks through the track when cicked and information about the track displayed such as the album cover, title and artist.
 
 #### On selecting the track, the background colours will change to correspond with the album covers colours.
+
+## Visit
+
+To visit, click here: https://davidhowe1.github.io/ReactMusicPlayer/
